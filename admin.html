@@ -1,5 +1,86 @@
-<!doctype html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Support Admin</title>
-<style>body{font-family:system-ui;margin:0;background:#f6f6f7}.box{max-width:900px;margin:35px auto;padding:25px}.msg{background:white;border:1px solid #ddd;border-radius:10px;padding:18px;margin:12px 0}.clear{padding:10px 15px;border:0;border-radius:7px;background:#222;color:#fff}</style></head>
-<body><div class="box"><h1>Support Admin</h1><p>This demo dashboard reads messages saved in this browser only.</p><button class="clear" onclick="localStorage.removeItem('bhc_messages');location.reload()">Clear messages</button><div id="list"></div>
-<script>const a=JSON.parse(localStorage.getItem('bhc_messages')||'[]').reverse();document.getElementById('list').innerHTML=a.length?a.map(x=>`<div class="msg"><b>${x.name}</b><br>${x.contact||'No contact provided'}<p>${x.message}</p><small>${x.time}</small></div>`).join(''):'<p>No messages yet.</p>';</script></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bitcoin Help Center</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #24252a;
+      background: #ffffff;
+    }
+
+    .hero {
+      background: #f7f7f8;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 65px 20px 75px;
+    }
+
+    .hero h1 {
+      text-align: center;
+      font-size: 44px;
+      margin: 0 0 30px;
+      letter-spacing: -1.5px;
+    }
+
+    .search {
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .search input {
+      width: 100%;
+      height: 58px;
+      padding: 0 20px;
+      font-size: 16px;
+      border: 1px solid #d8d8dc;
+      border-radius: 10px;
+      outline: none;
+      background: white;
+    }
+
+    .container {
+      width: min(1060px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    .intro {
+      text-align: center;
+      color: #6b6c72;
+      margin: 45px auto 35px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      display: flex;
+      gap: 18px;
+      padding: 25px;
+      min-height: 150px;
+      border: 1px solid #e7e7e9;
+      border-radius: 12px;
+      background: white;
+      text-decoration: none;
+      color: inherit;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
